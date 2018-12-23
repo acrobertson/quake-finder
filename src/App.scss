@@ -1,9 +1,25 @@
+label {
+  display: block;
+}
+
+input {
+  display: block;
+  padding: 2px;
+  margin: 5px 0;
+}
+
+.App {
+  display: flex;
+}
+
 .Nav {
-  width: 200px;
-  height: 300px;
+  // width: 500px;
+  // height: 100%;
   background-color: white;
-  position: fixed;
-  z-index: 1;
-  margin-top: 100px;
-  margin-left: 50px;
+  // position: relative;
+  // flex-grow: 1;
+  overflow-y: auto;
+  // z-index: 1;
+  // margin-top: 100px;
+  // margin-left: 50px;
 }

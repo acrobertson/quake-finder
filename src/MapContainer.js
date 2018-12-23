@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { GoogleApiWrapper, Marker, InfoWindow, Map } from "google-maps-react";
-import CurrentLocation from "./Map";
+// import CurrentLocation from "./Map";
 
 export class MapContainer extends Component {
   state = {
@@ -37,7 +37,10 @@ export class MapContainer extends Component {
         {this.props.quakes.map(quake => (
           <Marker
             key={quake.id}
-            title={quake.properties.place}
+            title={quake.properties.title}
+            place={quake.properties.place}
+            mag={quake.properties.mag}
+            url={quake.properties.url}
             onClick={this.handleMarkerClick}
             position={{
               lat: quake.geometry.coordinates[0],
@@ -51,8 +54,17 @@ export class MapContainer extends Component {
           visible={this.state.showingInfoWindow}
           onClose={this.onClose}
         >
-          <div>
-            <h4>{this.state.selectedPlace.title}</h4>
+          <div className="InfoWindow">
+            <h1>{this.state.selectedPlace.title}</h1>
+            <h2>{this.state.selectedPlace.place}</h2>
+            <p>{this.state.selectedPlace.mag} magnitude</p>
+            <a
+              href={this.state.selectedPlace.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              More Info
+            </a>
           </div>
         </InfoWindow>
       </Map>
