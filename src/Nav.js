@@ -16,6 +16,7 @@ export class Nav extends Component {
               name="fromDate"
               min="1900-01-01"
               max={today}
+              value={this.props.fromDate}
               onChange={this.props.handleInputChange}
             />
           </label>
@@ -27,6 +28,31 @@ export class Nav extends Component {
               name="toDate"
               min="1900-01-01"
               max={today}
+              value={this.props.toDate}
+              onChange={this.props.handleInputChange}
+            />
+          </label>
+          <label>
+            minimum magnitude
+            <input
+              type="number"
+              id="min-mag"
+              name="minMag"
+              min="0"
+              max="9"
+              value={this.props.minMag}
+              onChange={this.props.handleInputChange}
+            />
+          </label>
+          <label>
+            to
+            <input
+              type="number"
+              id="to-mag"
+              name="maxMag"
+              min="1"
+              max="10"
+              value={this.props.maxMag}
               onChange={this.props.handleInputChange}
             />
           </label>

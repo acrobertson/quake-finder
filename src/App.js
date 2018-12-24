@@ -7,8 +7,10 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      fromDate: "2018-04-20",
+      fromDate: "2018-04-19",
       toDate: "2018-04-20",
+      minMag: 0,
+      maxMag: 10,
       error: null,
       isLoaded: false,
       resultCount: 0,
@@ -35,13 +37,13 @@ class App extends Component {
     const params = {
       format: "geojson",
       starttime: this.state.fromDate,
-      endtime: this.state.toDate
+      endtime: this.state.toDate,
+      minmagnitude: this.state.minMag,
+      maxmagnitude: this.state.maxMag
     };
     Object.keys(params).forEach(key =>
       url.searchParams.append(key, params[key])
     );
-
-    console.log(url);
 
     fetch(url.href)
       .then(res => res.json())
@@ -67,6 +69,10 @@ class App extends Component {
         <Nav
           handleSubmit={this.handleSubmit}
           handleInputChange={this.handleInputChange}
+          fromDate={this.state.fromDate}
+          toDate={this.state.toDate}
+          minMag={this.state.minMag}
+          maxMag={this.state.maxMag}
         />
         <MapContainer quakes={this.state.quakes} />
       </div>
