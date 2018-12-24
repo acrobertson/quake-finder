@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import MapContainer from "./MapContainer";
 import Nav from "./Nav";
-import "./App.scss";
+import "./custom.scss";
 
 class App extends Component {
   constructor(props) {

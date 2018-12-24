@@ -6,6 +6,7 @@ export class Nav extends Component {
     const today = moment().format("YYYY-MM-DD");
     return (
       <div className="Nav">
+        <h1>QUAKE FINDER</h1>
         <div>click submit to load recent earthquakes</div>
         <form onSubmit={this.props.handleSubmit}>
           <label>
