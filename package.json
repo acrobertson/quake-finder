@@ -2,8 +2,10 @@
   "name": "quake-finder",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://acrobertson.github.io/quake-finder",
   "dependencies": {
     "bootstrap": "^4.2.1",
+    "gh-pages": "^2.0.1",
     "google-maps-react": "^2.0.2",
     "moment": "^2.23.0",
     "node-sass": "^4.11.0",
@@ -14,6 +16,8 @@
     "reactstrap": "^6.5.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
