@@ -7,8 +7,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      fromDate: "2018-04-19",
-      toDate: "2018-04-20",
+      fromDate: "2017-12-24",
+      toDate: "2017-12-25",
       minMag: 0,
       maxMag: 10,
       error: null,
@@ -73,7 +73,9 @@ class App extends Component {
           minMag={this.state.minMag}
           maxMag={this.state.maxMag}
         />
-        <MapContainer quakes={this.state.quakes} />
+        <div className="Map">
+          <MapContainer quakes={this.state.quakes} />
+        </div>
       </div>
     );
   }

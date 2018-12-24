@@ -3,49 +3,28 @@
 $font-stack-serif: "Roboto Slab", serif;
 $font-stack-sans: "Roboto", "Open Sans", sans-serif;
 
+$primary-color: #05204a;
+$secondary-color: #e1e2ef;
+$text-color: #02020a;
+
 body {
-  // background-color: #d1d2db;
-  background-color: #e1e2ef;
+  background-color: $secondary-color;
   margin: 0;
-  width: 100%;
-  // background-image: linear-gradient(
-  //   180deg,
-  //   #14181c 0,
-  //   #14181c 100px,
-  //   #2c3440 101px
-  // );
-  // background-position: 0 0;
 }
+
 .App {
-  display: flex;
+  display: inline-flex;
   font-family: $font-stack-sans;
-  height: 100%;
+  width: 100vw;
 }
+
+.Map {
+  width: 75vw;
+}
+
 .Nav {
-  // background-repeat-x:repeat;
-  // background-repeat-y:no-repeat;
-  height: 100%;
-  color: #02020a;
-  width: 50vh;
-  // width: 350px;
-  // height: 400px;
-  // position: absolute;
-  // flex-grow: 1;
-  // z-index: 1;
-  // padding: 10px;
-  // margin-top: 100px;
-  // margin-left: 50px;
-  // box-shadow: 5px 10px 8px #888888;
-  // border-radius: 2%;
-  h1 {
-    text-align: center;
-    color: #e1e2ef;
-    background-color: #05204a;
-    width: 100%;
-    height: 50px;
-    margin-top: 0;
-    padding: 50px 0;
-  }
+  color: $text-color;
+  max-width: 25%;
   p {
     text-align: center;
   }
@@ -57,25 +36,84 @@ body {
     display: block;
     padding: 2px;
     margin: 5px 0;
-  }
-  form {
-    padding: 10px;
-  }
-  button {
-    // padding: 5px;
-    // text-decoration: none;
-    // box-shadow: 2px 5px 8px #888888;
-    // border-radius: 10%;
-    // background-color: #05204a;
-    color: #05204a;
-    text-transform: uppercase;
-    // font-size: 1.1em;
-    &:hover {
-      background-color: #05204a;
-      color: #e1e2ef;
+    &[type="date"] {
+      width: 130px;
+    }
+    &[type="number"] {
+      width: 40px;
     }
   }
-  // overflow-y: auto;
+  form {
+    padding: 10px 30px;
+    margin-bottom: 15px;
+  }
+  button {
+    color: $secondary-color;
+    background-color: $primary-color;
+    text-transform: uppercase;
+    &:hover {
+      background-color: $secondary-color;
+      color: $primary-color;
+    }
+  }
+  .header {
+    text-align: center;
+    color: $secondary-color;
+    background-color: $primary-color;
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding: 5vh 0;
+  }
+  .filters {
+    display: flex;
+    flex-direction: column;
+  }
+  .mag-inputs {
+    display: flex;
+    .form-group:nth-child(2) {
+      margin-left: 25px;
+    }
+  }
+}
+
+// small
+@media screen and (max-width: 600px) {
+  .App {
+    flex-direction: column;
+  }
+  .Nav {
+    max-width: 100%;
+    text-align: center;
+    .filters {
+      text-align: left;
+    }
+  }
+}
+
+.InfoWindow {
+  h1 {
+    font-size: 1.5rem;
+  }
+  h2 {
+    font-size: 1.25rem;
+  }
+}
+
+// med
+@media screen and (min-width: 601) and (max-width: 1000px) {
+  .App {
+    flex-direction: column;
+  }
+  .Nav {
+    max-width: 100%;
+    text-align: center;
+    .filters {
+      text-align: left;
+      justify-content: space-evenly;
+      flex-direction: row;
+    }
+  }
 }
 
 @import "~bootstrap/scss/bootstrap.scss";
