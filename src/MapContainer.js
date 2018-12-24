@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { GoogleApiWrapper, Marker, InfoWindow, Map } from "google-maps-react";
-// import CurrentLocation from "./Map";
+import ReactDOM from "react-dom";
 
 export class MapContainer extends Component {
   state = {
@@ -8,6 +8,52 @@ export class MapContainer extends Component {
     activeMarker: {},
     selectedPlace: {}
   };
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.google !== this.props.google) {
+      this.loadMap();
+    }
+    if (prevState.currentLocation !== this.state.currentLocation) {
+      this.recenterMap();
+    }
+  }
+
+  loadMap() {
+    if (this.props && this.props.google) {
+      const { google } = this.props;
+      const maps = google.maps;
+
+      const mapRef = this.refs.map;
+
+      const node = ReactDOM.findDOMNode(mapRef);
+
+      let { zoom } = this.props;
+      const { lat, lng } = this.state.initialCenter;
+      const center = new maps.LatLng(lat, lng);
+      const mapConfig = Object.assign(
+        {},
+        {
+          center: center,
+          zoom: zoom
+        }
+      );
+
+      this.map = new maps.Map(node, mapConfig);
+    }
+  }
+
+  recenterMap() {
+    const map = this.map;
+    const loc = this.props.initialCenter;
+
+    const google = this.props.google;
+    const maps = google.maps;
+
+    if (map) {
+      let center = new maps.LatLng(loc.lat, loc.lng);
+      map.panTo(center);
+    }
+  }
 
   handleMarkerClick = (props, marker, e) =>
     this.setState({
@@ -29,10 +75,7 @@ export class MapContainer extends Component {
     return (
       <Map
         google={this.props.google}
-        initialCenter={{
-          lat: 42.39,
-          lng: -72.52
-        }}
+        initialCenter={{ lat: 38.2556925, lng: -85.7512828 }}
       >
         {this.props.quakes.map(quake => (
           <Marker

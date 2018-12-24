@@ -10,7 +10,6 @@
     "moment": "^2.23.0",
     "node-sass": "^4.11.0",
     "react": "^16.7.0",
-    "react-burger-menu": "^2.5.4",
     "react-dom": "^16.7.0",
     "react-scripts": "2.1.1",
     "reactstrap": "^6.5.0"

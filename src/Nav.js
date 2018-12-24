@@ -1,18 +1,10 @@
 import React, { Component } from "react";
-import {
-  Form,
-  FormGroup,
-  Input,
-  Label,
-  Button,
-  Container,
-  Row,
-  Col
-} from "reactstrap";
+import { Form, FormGroup, Input, Label, Button, Alert } from "reactstrap";
 import moment from "moment";
 
 export class Nav extends Component {
   render() {
+    const error = this.props.error;
     const today = moment().format("YYYY-MM-DD");
     return (
       <div className="Nav">
@@ -83,6 +75,11 @@ export class Nav extends Component {
             </div>
           </div>
           <Button>search</Button>{" "}
+          {error && (
+            <Alert color="danger">
+              Too many earthquakes! Try narrowing your search.
+            </Alert>
+          )}
         </Form>
       </div>
     );

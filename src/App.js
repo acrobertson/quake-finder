@@ -50,7 +50,8 @@ class App extends Component {
         result => {
           this.setState({
             isLoaded: true,
-            quakes: result.features
+            quakes: result.features,
+            error: null
           });
         },
         error => {
@@ -72,6 +73,7 @@ class App extends Component {
           toDate={this.state.toDate}
           minMag={this.state.minMag}
           maxMag={this.state.maxMag}
+          error={this.state.error}
         />
         <div className="Map">
           <MapContainer quakes={this.state.quakes} />
