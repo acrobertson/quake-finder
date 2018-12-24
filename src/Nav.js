@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Form, FormGroup, Input, Label, Button } from "reactstrap";
 import moment from "moment";
 
 export class Nav extends Component {
@@ -7,11 +8,15 @@ export class Nav extends Component {
     return (
       <div className="Nav">
         <h1>QUAKE FINDER</h1>
-        <div>click submit to load recent earthquakes</div>
-        <form onSubmit={this.props.handleSubmit}>
-          <label>
-            from
-            <input
+        {/* <h2>Find earthquakes around the world</h2> */}
+        <p>
+          Select a date and magnitude range, click search, and check the map!
+        </p>
+        <Form onSubmit={this.props.handleSubmit}>
+          <FormGroup>
+            <h3>Date Range</h3>
+            <Label>From:</Label>
+            <Input
               type="date"
               id="from-date"
               name="fromDate"
@@ -20,10 +25,10 @@ export class Nav extends Component {
               value={this.props.fromDate}
               onChange={this.props.handleInputChange}
             />
-          </label>
-          <label>
-            to
-            <input
+          </FormGroup>
+          <FormGroup>
+            <Label>To:</Label>
+            <Input
               type="date"
               id="to-date"
               name="toDate"
@@ -32,9 +37,10 @@ export class Nav extends Component {
               value={this.props.toDate}
               onChange={this.props.handleInputChange}
             />
-          </label>
-          <label>
-            minimum magnitude
+          </FormGroup>
+          <FormGroup>
+            <h3>Magnitude Range</h3>
+            <label>From:</label>
             <input
               type="number"
               id="min-mag"
@@ -44,9 +50,9 @@ export class Nav extends Component {
               value={this.props.minMag}
               onChange={this.props.handleInputChange}
             />
-          </label>
-          <label>
-            to
+          </FormGroup>
+          <FormGroup>
+            <label>To:</label>
             <input
               type="number"
               id="to-mag"
@@ -56,10 +62,10 @@ export class Nav extends Component {
               value={this.props.maxMag}
               onChange={this.props.handleInputChange}
             />
-          </label>
-
-          <input type="submit" value="submit" />
-        </form>
+          </FormGroup>
+          {/* <input type="submit" value="submit" /> */}
+          <Button outline>search</Button>{" "}
+        </Form>
       </div>
     );
   }

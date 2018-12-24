@@ -26,9 +26,16 @@ export class MapContainer extends Component {
   };
 
   render() {
+    const style = {
+      width: "100%",
+      height: "100%",
+      position: "fixed"
+    };
+
     return (
       <Map
         google={this.props.google}
+        style={style}
         initialCenter={{
           lat: 42.39,
           lng: -72.52

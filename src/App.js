@@ -29,7 +29,6 @@ class App extends Component {
   };
 
   // fetch quake data w/ provided filters
-  // TODO: add filtering
   handleSubmit = event => {
     event.preventDefault();
 

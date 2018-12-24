@@ -4,8 +4,10 @@ $font-stack-serif: "Roboto Slab", serif;
 $font-stack-sans: "Roboto", "Open Sans", sans-serif;
 
 body {
+  // background-color: #d1d2db;
   background-color: #e1e2ef;
   margin: 0;
+  width: 100%;
   // background-image: linear-gradient(
   //   180deg,
   //   #14181c 0,
@@ -24,7 +26,7 @@ body {
   // background-repeat-y:no-repeat;
   height: 100%;
   color: #02020a;
-  width: 500px;
+  width: 50vh;
   // width: 350px;
   // height: 400px;
   // position: absolute;
@@ -44,6 +46,9 @@ body {
     margin-top: 0;
     padding: 50px 0;
   }
+  p {
+    text-align: center;
+  }
   label {
     display: block;
     margin-top: 5px;
@@ -52,18 +57,22 @@ body {
     display: block;
     padding: 2px;
     margin: 5px 0;
-    &[type="submit"] {
-      padding: 5px;
-      text-decoration: none;
-      box-shadow: 2px 5px 8px #888888;
-      border-radius: 10%;
-      background-color: #b497d6;
-      color: white;
-      text-transform: uppercase;
-      font-size: 1.1em;
-    }
-    form {
-      padding: 10px;
+  }
+  form {
+    padding: 10px;
+  }
+  button {
+    // padding: 5px;
+    // text-decoration: none;
+    // box-shadow: 2px 5px 8px #888888;
+    // border-radius: 10%;
+    // background-color: #05204a;
+    color: #05204a;
+    text-transform: uppercase;
+    // font-size: 1.1em;
+    &:hover {
+      background-color: #05204a;
+      color: #e1e2ef;
     }
   }
   // overflow-y: auto;
